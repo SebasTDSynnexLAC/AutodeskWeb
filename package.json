@@ -1,0 +1,22 @@
+{
+  "name": "datech-autodesk-po-uploader",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Local (localhost) XML -> Autodesk PlaceOrder v2 (ESI) uploader (Node portable friendly)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build:portable": "node tools/build-portable.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fast-xml-parser": "^4.4.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

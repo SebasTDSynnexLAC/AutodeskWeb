@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datech XML → Autodesk PO Uploader (Local)</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Datech XML → Autodesk PlaceOrder v2 (ESI)</h1>
+    <p>Aplicación local (localhost) para cargar XML, completar datos, aplicar descuento 0%/3% (ESI), generar JSON y enviar a Autodesk.</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>1) Cargar XML</h2>
+      <input id="xmlFile" type="file" accept=".xml,text/xml" />
+      <textarea id="xmlText" placeholder="...o pega el XML aquí"></textarea>
+      <div class="row">
+        <button id="btnExtract" class="btn secondary">Extraer</button>
+        <span id="extractStatus" class="badge">Idle</span>
+      </div>
+      <pre id="extracted" class="pre"></pre>
+    </section>
+
+    <section class="card">
+      <h2>2) Completar datos</h2>
+
+      <div class="row">
+        <label>Ambiente</label>
+        <select id="env">
+          <option value="stg">STG</option>
+          <option value="prod">PROD</option>
+        </select>
+        <label>Descuento</label>
+        <select id="discountPct">
+          <option value="0">0%</option>
+          <option value="3">3% (ESI)</option>
+        </select>
+      </div>
+
+      <h3>CSNs</h3>
+      <div class="row">
+        <div class="field">
+          <label>Sold-To CSN</label>
+          <input id="soldToCsn" type="text" />
+        </div>
+        <div class="field">
+          <label>Reseller CSN</label>
+          <input id="resellerCsn" type="text" />
+        </div>
+      </div>
+
+      <h3>End Customer (account)</h3>
+      <div class="row">
+        <div class="field"><label>Nombre</label><input id="ecName" type="text" /></div>
+        <div class="field"><label>País (ISO-2)</label><input id="ecCountry" type="text" placeholder="CA" /></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Dirección 1</label><input id="ecAddress1" type="text" /></div>
+        <div class="field"><label>Dirección 2</label><input id="ecAddress2" type="text" /></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Ciudad</label><input id="ecCity" type="text" /></div>
+        <div class="field"><label>Estado/Prov</label><input id="ecState" type="text" /></div>
+        <div class="field"><label>Postal</label><input id="ecPostal" type="text" /></div>
+      </div>
+
+      <h3>Contract Manager</h3>
+      <div class="row">
+        <div class="field"><label>First Name</label><input id="cmFirst" type="text" /></div>
+        <div class="field"><label>Last Name</label><input id="cmLast" type="text" /></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>Email</label><input id="cmEmail" type="text" /></div>
+        <div class="field"><label>Language (ISO-2)</label><input id="cmLanguage" type="text" placeholder="EN" /></div>
+        <div class="field"><label>Phone</label><input id="cmPhone" type="text" /></div>
+      </div>
+
+      <div class="row">
+        <label class="switch"><input id="shipSame" type="checkbox" checked /> ShipTo = EndCustomer</label>
+      </div>
+
+      <h3>Auth</h3>
+      <div class="row">
+        <div class="field"><label>Header CSN</label><input id="authCsn" type="text" /></div>
+        <div class="field"><label>Access Token (Bearer)</label><input id="accessToken" type="password" /></div>
+      </div>
+
+      <div class="row">
+        <button id="btnPreview" class="btn">Preview JSON</button>
+        <button id="btnSend" class="btn danger">Enviar a Autodesk</button>
+        <span id="sendStatus" class="badge">Idle</span>
+      </div>
+
+      <h3>JSON (payload)</h3>
+      <pre id="payload" class="pre"></pre>
+      <h3>Respuesta Autodesk</h3>
+      <pre id="response" class="pre"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <small>Para descuento ESI la app agrega <code>orderDiscounts: [{"discountType":"ESI"}]</code> y calcula <code>netPrice</code> con 3%.</small>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
