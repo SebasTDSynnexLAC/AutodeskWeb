@@ -12,33 +12,42 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { xml, form, auth } = req.body || {};
+    const { xml, form } = req.body || {};
 
     if (!xml) {
       return res.status(400).json({ error: 'Missing xml' });
     }
 
-    if (!auth || !auth.accessToken) {
-      return res.status(400).json({ error: 'Missing accessToken' });
+    // 🔑 Token desde Vercel Environment Variables
+    const AUTODESK_TOKEN = process.env.AUTODESK_ACCESS_TOKEN;
+
+    if (!AUTODESK_TOKEN) {
+      return res.status(500).json({
+        error: 'Missing AUTODESK_ACCESS_TOKEN environment variable'
+      });
     }
 
-    if (!auth.csn) {
-      return res.status(400).json({ error: 'Missing CSN' });
-    }
-
+    // Parsear XML y construir payload
     const extracted = parseDatechXml(xml);
     const payload = buildAutodeskPayload({ extracted, form });
 
+    // Llamada a Autodesk PlaceOrder
     const result = await sendToAutodesk({
       env: form?.env || 'stg',
-      accessToken: auth.accessToken,
-      csn: auth.csn,
+      accessToken: AUTODESK_TOKEN,   // ✅ token correcto
+      csn: form?.soldToCsn,
       payload
     });
 
-    return res.status(200).json({ payload, result });
+    return res.status(200).json({
+      payload,
+      result
+    });
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    console.error('Error in /api/send:', err);
+    return res.status(500).json({
+      error: err.message || 'Unexpected error'
+    });
   }
 };
 ``
