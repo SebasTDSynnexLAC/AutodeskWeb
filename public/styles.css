@@ -1,1 +1,124 @@
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0f172a;color:#e5e7eb}header,footer{padding:16px 20px;max-width:1200px;margin:0 auto}header h1{margin:0 0 6px;font-size:20px}header p{margin:0;color:#9ca3af}main.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1200px;margin:0 auto;padding:0 20px 20px}@media(max-width:980px){main.grid{grid-template-columns:1fr}}.card{background:#111827;border:1px solid #374151;border-radius:10px;padding:12px}.row{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.field{flex:1;min-width:180px}label{display:block;font-size:12px;color:#cbd5e1;margin-bottom:4px}input,select,textarea{width:100%;padding:9px;border-radius:8px;border:1px solid #374151;background:#0b1220;color:#e5e7eb}textarea{min-height:140px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px}h2{margin:0 0 10px;font-size:16px}h3{margin:12px 0 6px;font-size:14px;color:#cbd5e7}.btn{background:#2563eb;border:1px solid #1e40af;color:white;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}.btn.secondary{background:#334155;border-color:#1f2937}.btn.danger{background:#dc2626;border-color:#991b1b}.badge{display:inline-block;border:1px solid #374151;color:#9ca3af;border-radius:999px;padding:2px 8px;font-size:12px;height:22px;line-height:18px}.pre{min-height:140px;white-space:pre-wrap;word-break:break-word;background:#0b1220;border:1px solid #374151;border-radius:8px;padding:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:#e5e7eb}.switch{display:flex;gap:8px;align-items:center;color:#cbd5e1}code{background:#0b1220;border:1px solid #374151;padding:1px 4px;border-radius:6px}
+:root {
+  /* TD SYNNEX Brand Colors */
+  --tds-deep-teal: #003031;
+  --tds-teal: #005758;
+  --tds-aqua: #08BED5;
+  --tds-green: #2D9F88;
+  --tds-white: #FFFFFF;
+  --tds-cloud: #FFFFF6;
+  --tds-gray-100: #F2F4F4;
+  --tds-gray-300: #D5DBDB;
+  --tds-gray-600: #5D6D6E;
+}
+
+/* Base */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--tds-cloud);
+  color: var(--tds-gray-600);
+}
+
+/* Header */
+header {
+  background-color: var(--tds-deep-teal);
+  color: var(--tds-white);
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 24px;
+  background: var(--tds-white);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Titles */
+h1, h2, h3 {
+  color: var(--tds-deep-teal);
+  margin-bottom: 12px;
+}
+
+/* Form */
+label {
+  display: block;
+  font-weight: 600;
+  color: var(--tds-teal);
+  margin-bottom: 6px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--tds-gray-300);
+  border-radius: 4px;
+  font-size: 14px;
+  background: var(--tds-white);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--tds-teal);
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--tds-teal);
+  color: var(--tds-white);
+}
+
+.btn-primary:hover {
+  background-color: #004a4b;
+}
+
+.btn-secondary {
+  background-color: var(--tds-green);
+  color: var(--tds-white);
+}
+
+.btn-secondary:hover {
+  background-color: #238b75;
+}
+
+.btn-muted {
+  background-color: var(--tds-gray-300);
+  color: var(--tds-gray-600);
+}
+
+/* JSON Viewer */
+.json-box {
+  background: var(--tds-white);
+  border: 1px solid var(--tds-teal);
+  border-radius: 4px;
+  padding: 16px;
+  font-family: monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  margin-top: 12px;
+}
+
+/* Response Status */
+.status-ok {
+  color: var(--tds-green);
+  font-weight: 600;
+}
+
+.status-error {
+  color: var(--tds-gray-600);
+  font-weight: 600;
+}
+``
