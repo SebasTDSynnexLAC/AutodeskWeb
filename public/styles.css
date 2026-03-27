@@ -1,21 +1,13 @@
-/* =========================================================
-   TD SYNNEX – Corporate Styles
-   ========================================================= */
-
-/* --------- Variables de marca --------- */
 :root {
   --tds-deep-teal: #003031;
   --tds-teal: #005758;
   --tds-green: #2D9F88;
-  --tds-aqua: #08BED5;
   --tds-white: #ffffff;
   --tds-cloud: #fffff6;
-  --tds-gray-100: #f2f4f4;
   --tds-gray-300: #d5dbdb;
   --tds-gray-600: #5d6d6e;
 }
 
-/* --------- Reset básico --------- */
 {
   box-sizing: border-box;
 }
@@ -27,26 +19,23 @@ body {
   color: var(--tds-gray-600);
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+/* ================= HEADER ================= */
 
 .tds-header {
   background-color: var(--tds-deep-teal);
   height: 64px;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .tds-header-inner {
-  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .tds-brand {
@@ -57,18 +46,14 @@ body {
 
 .tds-logo {
   height: 28px;
-  width: auto;
 }
 
 .tds-app-title {
   color: var(--tds-white);
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
 }
 
-/* Badge STG / PROD */
 .tds-env {
   background-color: var(--tds-teal);
   color: var(--tds-white);
@@ -76,67 +61,38 @@ body {
   font-weight: 700;
   padding: 6px 10px;
   border-radius: 3px;
-  letter-spacing: 0.5px;
 }
 
-/* =========================================================
-   MAIN CONTAINER
-   ========================================================= */
+/* ================= MAIN ================= */
 
 .container {
   max-width: 1200px;
   margin: 32px auto;
+  background: var(--tds-white);
   padding: 24px;
-  background-color: var(--tds-white);
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
   color: var(--tds-deep-teal);
-  margin-top: 0;
-  margin-bottom: 24px;
 }
 
-/* =========================================================
-   FORM
-   ========================================================= */
-
 label {
-  display: block;
-  margin-bottom: 6px;
   font-weight: 600;
   color: var(--tds-teal);
 }
 
-input[type="file"],
-input[type="text"],
-textarea,
-select {
+input {
+  padding: 10px;
   width: 100%;
-  padding: 10px 12px;
   border: 1px solid var(--tds-gray-300);
   border-radius: 4px;
-  font-size: 14px;
-  background-color: var(--tds-white);
 }
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--tds-teal);
-}
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
 
 button {
   padding: 10px 18px;
   border-radius: 4px;
   border: none;
-  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   margin-right: 8px;
@@ -147,17 +103,9 @@ button {
   color: var(--tds-white);
 }
 
-.btn-primary:hover {
-  background-color: #004a4b;
-}
-
 .btn-secondary {
   background-color: var(--tds-green);
   color: var(--tds-white);
-}
-
-.btn-secondary:hover {
-  background-color: #238b75;
 }
 
 .btn-muted {
@@ -165,33 +113,10 @@ button {
   color: var(--tds-gray-600);
 }
 
-.btn-muted:hover {
-  background-color: #c4c9c9;
-}
-
-/* =========================================================
-   JSON / RESPONSE BOX
-   ========================================================= */
-
 .json-box {
   margin-top: 24px;
   padding: 16px;
   border: 1px solid var(--tds-teal);
-  border-radius: 4px;
-  background-color: var(--tds-white);
-  font-family: Consolas, monospace;
-  font-size: 13px;
-  white-space: pre-wrap;
-}
-
-/* Status text */
-.status-ok {
-  color: var(--tds-green);
-  font-weight: 600;
-}
-
-.status-error {
-  color: var(--tds-gray-600);
-  font-weight: 600;
+  font-family: monospace;
 }
 ``
